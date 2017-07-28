@@ -12,8 +12,10 @@ class Shop
 	public $agency;
 	public $email;
 
-	public function __construct(string $name)
+	public function __construct(string $name, string $company, string $url)
 	{
 		$this->name = $name;
+		$this->company = $company;
+		$this->url = $url;
 	}
 }
