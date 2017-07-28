@@ -11,9 +11,9 @@ class ShopTest extends TestCase
     public function testConstruct()
     {
 		$shop = new Shop("My test shop");
-		$builder = new ShopBuilder($shop);
+		$builder = new ShopBuilder();
 		$this->assertEquals(
-			$builder->build(),
+			$builder->build($shop),
 			"<shop><name>My test shop</name><company/><url/></shop>"
 		);
     }
@@ -29,9 +29,9 @@ class ShopTest extends TestCase
 		$shop->platform = "platform";
 
 		$shop->email = "email";
-		$builder = new ShopBuilder($shop);
+		$builder = new ShopBuilder();
 		$this->assertEquals(
-			$builder->build(),
+			$builder->build($shop),
 			"<shop><name>My test shop</name><company>company</company><url>url</url><platform>platform</platform><version>version</version><agency/><email>email</email></shop>"
 		);
     }

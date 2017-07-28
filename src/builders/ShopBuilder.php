@@ -6,16 +6,19 @@ use jugger\yandexYml\Shop;
 
 class ShopBuilder
 {
-	protected $shop;
 	protected $dom;
+	protected $shop;
+	protected $element;
 
-	public function __construct(Shop $shop)
+	protected function initBeforeBuild(Shop $shop)
 	{
-		$this->shop = $shop;
 		$this->dom = new \DOMDocument;
+		$this->shop = $shop;
+		$this->element = $this->dom->createElement("shop");
+		$this->dom->appendChild($this->element);
 	}
 
-	protected function appendChildProperty(\DOMElement $element, string $name)
+	protected function elementAppendChildShopProperty(string $name)
 	{
 		$value = $this->shop->$name;
 		if (is_scalar($value)) {
@@ -25,36 +28,34 @@ class ShopBuilder
 			$value = "";
 		}
 		$child = $this->dom->createElement($name, $value);
-		$element->appendChild($child);
+		$this->element->appendChild($child);
 	}
 
-	protected function appendChildPropertyIsSet(\DOMElement $element, string $name)
+	protected function elementAppendChildShopPropertyIsSet(string $name)
 	{
 		if (isset($this->shop->$name)) {
-			$this->appendChildProperty($element, $name);
+			$this->elementAppendChildShopProperty($name);
 		}
 	}
 
-	public function buildDOM(): \DOMDocument
+	public function buildDOM(Shop $shop): \DOMDocument
 	{
-		$this->dom = new \DOMDocument;
-		$element = $this->dom->createElement("shop");
-		$this->dom->appendChild($element);
+		$this->initBeforeBuild($shop);
 
-		$this->appendChildProperty($element, "name");
-		$this->appendChildProperty($element, "company");
-		$this->appendChildProperty($element, "url");
-		$this->appendChildPropertyIsSet($element, "platform");
-		$this->appendChildPropertyIsSet($element, "version");
-		$this->appendChildPropertyIsSet($element, "agency");
-		$this->appendChildPropertyIsSet($element, "email");
+		$this->elementAppendChildShopProperty("name");
+		$this->elementAppendChildShopProperty("company");
+		$this->elementAppendChildShopProperty("url");
+		$this->elementAppendChildShopPropertyIsSet("platform");
+		$this->elementAppendChildShopPropertyIsSet("version");
+		$this->elementAppendChildShopPropertyIsSet("agency");
+		$this->elementAppendChildShopPropertyIsSet("email");
 
 		return $this->dom;
 	}
 
-	public function build(): string
+	public function build(Shop $shop): string
 	{
-		$dom = $this->buildDOM();
+		$dom = $this->buildDOM($shop);
 		$node = $dom->getElementsByTagName('shop')->item(0);
 		return $dom->saveXML($node);
 	}
