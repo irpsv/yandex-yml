@@ -11,6 +11,7 @@ class Shop
 	public $version;
 	public $agency;
 	public $email;
+	public $cpa;
 
 	public function __construct(string $name, string $company, string $url)
 	{

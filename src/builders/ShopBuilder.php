@@ -42,9 +42,12 @@ class ShopBuilder
 	{
 		$this->initBeforeBuild($shop);
 
+		$shop->cpa = $shop->cpa ? (int) $shop->cpa : 0;
+
 		$this->elementAppendChildShopProperty("name");
 		$this->elementAppendChildShopProperty("company");
 		$this->elementAppendChildShopProperty("url");
+		$this->elementAppendChildShopProperty("cpa");
 		$this->elementAppendChildShopPropertyIsSet("platform");
 		$this->elementAppendChildShopPropertyIsSet("version");
 		$this->elementAppendChildShopPropertyIsSet("agency");
