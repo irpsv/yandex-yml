@@ -109,8 +109,11 @@ class OfferTest extends TestCase
 		$offer->vendor = "Brand";
 		$offer->vendorCode = "BB";
 
-		$offerTestXml = file_get_contents(__DIR__.'/offer-test.xml');
-		$offerTestXml = str_replace(["\n", "\r", "\n\r", "\r\n"], "", $offerTestXml);
+		$offerTestXml = str_replace(
+			["\n", "\r", "\n\r", "\r\n"],
+			"",
+			file_get_contents(__DIR__.'/offer-test.xml')
+		);
 		$this->assertEquals(
 			$offerTestXml,
 			$builder->build($offer)

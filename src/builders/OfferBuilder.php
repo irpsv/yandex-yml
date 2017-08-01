@@ -14,10 +14,9 @@ abstract class OfferBuilder
 	public function build(Offer $model): string
 	{
 		$dom = $this->buildDOM($model);
+		$dom->encoding = "UTF-8";
 		$node = $dom->getElementsByTagName('offer')->item(0);
-		// короче какая то шляпа
-		// <param name=""> - не кушает русские символы (кодирует в HTML тэги)
-		return html_entity_decode($dom->saveXML($node));
+		return $dom->saveXML($node);
 	}
 
 	abstract public function buildDOM(Offer $offer): \DOMDocument;

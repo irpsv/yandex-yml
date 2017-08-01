@@ -11,10 +11,10 @@ class DeliveryBuilder
 		$dom = new \DOMDocument;
 		$element = $dom->createElement("option");
 		$element->setAttribute('cost', $model->cost);
-		if ($model->days) {
+		if (isset($model->days)) {
 			$element->setAttribute('days', $model->days);
 		}
-		if ($model->orderBefore) {
+		if (isset($model->orderBefore)) {
 			$element->setAttribute('order-before', $model->orderBefore);
 		}
 
