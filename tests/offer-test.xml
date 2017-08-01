@@ -1,0 +1,45 @@
+<offer id="id" available="false" cbid="654" bid="123" fee="54">
+<name>Мороженица Brand 3811</name>
+<model>(VLNEO) V RACER NYLON</model>
+<vendor>Brand</vendor>
+<vendorCode>BB</vendorCode>
+<url>url</url>
+<price from="true">1000</price>
+<oldprice>5000</oldprice>
+<currencyId>RUR</currencyId>
+<categoryId>1</categoryId>
+<picture>http://best.seller.ru/img/model_12345.jpg</picture>
+<delivery>true</delivery>
+<delivery-options>
+<option cost="123"/>
+<option cost="456" days="7"/>
+</delivery-options>
+<pickup>true</pickup>
+<store>true</store>
+<outlets>
+<outlet id="1" instock="20"/>
+<outlet id="2" instock="30" booking="true"/>
+</outlets>
+<description>
+<![CDATA[
+<h3>Мороженица Brand 3811</h3>
+<p>Это прибор, который придётся по вкусу всем любителям десертов и сладостей, ведь с его помощью вы сможете делать вкусное домашнее мороженое из натуральных ингредиентов.</p>
+]]>
+</description>
+<sales_notes>Варианты оплаты и минимальная сумма заказа</sales_notes>
+<min-quantity>2</min-quantity>
+<step-quantity>2</step-quantity>
+<manufacturer_warranty>true</manufacturer_warranty>
+<country_of_origin>Россия</country_of_origin>
+<adult>true</adult>
+<age>6</age>
+<barcode>0123456789379</barcode>
+<cpa>1</cpa>
+<param name="Цвет">белый</param>
+<param name="Вольтаж" unit="вольт">220</param>
+<expiry>2017-07-31T13:54:38+0200</expiry>
+<weight>1.234</weight>
+<dimensions>1.23/4.56/789</dimensions>
+<downloadable>true</downloadable>
+<rec>123,456,789</rec>
+</offer>
